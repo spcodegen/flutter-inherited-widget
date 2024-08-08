@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:inharited/inherited/inherited_widget.dart';
+import 'package:inharited/inherited/state_controller.dart';
+import 'package:inharited/models/user_model.dart';
 import 'package:inharited/pages/home_page.dart';
+import 'package:inharited/pages/new_home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(StateController(
+    user: User(
+      name: "name",
+      email: "email",
+      password: "password",
+    ),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +26,7 @@ class MyApp extends StatelessWidget {
       userName: "S.S Dissanayake",
       child: const MaterialApp(
         title: 'Flutter Demo',
-        home: HomePage(),
+        home: NewHomePage(),
       ),
     );
   }
